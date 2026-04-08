@@ -1,0 +1,345 @@
+.section {
+  padding: 48px 24px 60px;
+  background: var(--color-bg);
+}
+
+.heading {
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.heading em {
+  color: var(--color-amber);
+  font-style: italic;
+}
+
+.sub {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 16px;
+  color: var(--color-text-muted);
+  font-weight: 300;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+/* ─── Device frame ───────────────────────────────────────── */
+.frame {
+  max-width: 560px;
+  margin: 0 auto;
+  background: var(--color-bg-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+}
+
+.frameHeader {
+  height: 44px;
+  background: var(--color-bg-subtle);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 8px;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-amber);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--color-amber);
+  flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.dotGray {
+  width: 8px;
+  height: 8px;
+  background: var(--color-text-faint);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ─── Chat area (idle + answered) ────────────────────────── */
+.chatArea {
+  padding: 24px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.userMsg {
+  align-self: flex-end;
+  background: var(--color-amber-dim);
+  border: 1px solid rgba(125, 168, 130, 0.15);
+  padding: 10px 14px;
+  border-radius: 12px 12px 2px 12px;
+  max-width: 85%;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  text-align: right;
+  line-height: 1.5;
+}
+
+.aiThinking {
+  align-self: flex-start;
+  display: flex;
+  gap: 5px;
+  padding: 14px 16px;
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: 2px 12px 12px 12px;
+}
+
+.thinkingDot {
+  width: 7px;
+  height: 7px;
+  background: var(--color-text-faint);
+  border-radius: 50%;
+  animation: thinkBounce 1.2s ease-in-out infinite;
+}
+
+.thinkingDot:nth-child(2) { animation-delay: 0.2s; }
+.thinkingDot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes thinkBounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-5px); opacity: 1; }
+}
+
+.inputRow {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fakeInput {
+  width: 100%;
+  padding: 11px 14px;
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 14px;
+  color: var(--color-text-faint);
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+  color: var(--color-amber);
+}
+
+.sendBtn {
+  width: 100%;
+  padding: 13px;
+  background: var(--color-amber-dim);
+  color: var(--color-amber);
+  border: 1px solid var(--color-amber);
+  border-radius: 10px;
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sendBtn:hover {
+  background: var(--color-amber-glow);
+}
+
+.demoHint {
+  text-align: center;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 11px;
+  color: var(--color-text-faint);
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+
+/* ─── Game area ──────────────────────────────────────────── */
+.gameArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.gameStatus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.timerLabel {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 12px;
+  color: var(--color-amber);
+  letter-spacing: 0.05em;
+}
+
+.timerTrack {
+  height: 3px;
+  background: var(--color-bg-subtle);
+  width: 100%;
+}
+
+.timerBar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-amber), #a8d4ab);
+  transition: width 1s linear;
+  box-shadow: 0 0 6px rgba(125, 168, 130, 0.5);
+}
+
+.returnBtn {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0;
+}
+
+.returnBtn:hover {
+  color: var(--color-text);
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  outline: none;
+}
+
+.canvas:focus {
+  box-shadow: inset 0 0 0 1px rgba(125, 168, 130, 0.2);
+}
+
+/* ─── Answered area ──────────────────────────────────────── */
+.answeredArea {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.aiMsg {
+  align-self: flex-start;
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  padding: 16px;
+  border-radius: 2px 12px 12px 12px;
+  max-width: 100%;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.codeBlock {
+  background: rgba(125, 168, 130, 0.05);
+  border: 1px solid rgba(125, 168, 130, 0.12);
+  border-radius: 8px;
+  padding: 14px;
+  overflow-x: auto;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.codeBlock code {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 12px;
+  color: var(--color-text);
+}
+
+.inlineCode {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 12px;
+  background: rgba(125, 168, 130, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--color-amber);
+}
+
+.answeredActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.resetBtn {
+  padding: 10px 20px;
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  border-radius: 8px;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.resetBtn:hover {
+  border-color: var(--color-amber);
+  color: var(--color-amber);
+}
+
+.chromeCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: var(--color-amber-dim);
+  color: var(--color-amber);
+  border: 1px solid var(--color-amber);
+  border-radius: 8px;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.chromeCta:hover {
+  background: var(--color-amber-glow);
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .frame {
+    border-radius: 12px;
+  }
+
+  .answeredActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .resetBtn,
+  .chromeCta {
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+  }
+}

@@ -1,0 +1,83 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.nav.visible {
+  opacity: 1;
+  animation: navFadeIn 0.5s ease both;
+}
+
+@keyframes navFadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.nav.scrolled {
+  background: rgba(15, 14, 13, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.logo {
+  font-family: var(--font-fraunces), serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--color-amber);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.blogLink {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 400;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.blogLink:hover {
+  color: var(--color-text);
+}
+
+.ctaBtn {
+  background: var(--color-amber-dim);
+  color: var(--color-amber);
+  border: 1px solid var(--color-amber);
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s;
+  display: inline-block;
+}
+
+.ctaBtn:hover {
+  background: var(--color-amber-glow);
+}

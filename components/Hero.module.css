@@ -1,0 +1,207 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 24px 60px;
+  text-align: center;
+}
+
+/* ─── Background blobs ───────────────────────────────────── */
+.bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.blob1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  left: 20%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(125, 168, 130, 0.12) 0%, transparent 70%);
+  animation: float 20s ease-in-out infinite;
+  filter: blur(40px);
+}
+
+.blob2 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  left: 80%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(192, 124, 94, 0.08) 0%, transparent 70%);
+  animation: float 25s ease-in-out infinite reverse;
+  filter: blur(32px);
+}
+
+.blob3 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  left: 50%;
+  top: 90%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(125, 168, 130, 0.06) 0%, transparent 70%);
+  animation: float 30s ease-in-out infinite;
+  filter: blur(48px);
+}
+
+/* ─── Content ────────────────────────────────────────────── */
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 680px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  background: var(--color-amber-dim);
+  border: 1px solid rgba(125, 168, 130, 0.2);
+  border-radius: 100px;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 11px;
+  color: var(--color-amber);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+
+.heading {
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(56px, 9vw, 100px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: 24px;
+}
+
+.heading em {
+  color: var(--color-amber);
+  font-style: italic;
+}
+
+.sub {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  max-width: 500px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  background: var(--color-amber-dim);
+  color: var(--color-amber);
+  border: 1px solid var(--color-amber);
+  border-radius: 10px;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.primary:hover {
+  background: var(--color-amber-glow);
+}
+
+.secondary {
+  color: var(--color-text-muted);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 15px 20px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.secondary:hover {
+  color: var(--color-text);
+}
+
+.hint {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 13px;
+  color: var(--color-text-faint);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--color-amber);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--color-amber);
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* ─── Scroll indicator ───────────────────────────────────── */
+.scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-text-faint);
+  font-size: 18px;
+  animation: float 3s ease-in-out infinite;
+  user-select: none;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 20px 80px;
+  }
+
+  .heading {
+    font-size: clamp(44px, 12vw, 72px);
+  }
+
+  .sub {
+    font-size: 16px;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
